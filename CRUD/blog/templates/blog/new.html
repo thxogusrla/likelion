@@ -1,0 +1,12 @@
+{% extends 'blog/layout.html' %}
+{% block content %}
+    <form method='POST'>
+        {% csrf_token %} 
+        <div class="container1">
+        <table id="ta">
+            {{form.as_table}}
+        </table>
+    </div>
+        <input type="submit" value="제출하기" class="btn btn-dark">
+    </form>
+{% endblock %}
