@@ -3,32 +3,24 @@
 {% block content %}
 {% for blog in blogs.all %}
 <div class="container1">
-<table class="table">
-        <thead>
-          <tr>
-            <th scope="col">pk!</th>
-            <th scope="col">Title</th>
-            <th scope="col">time</th>
-            <th scope="col">내용</th>
-          </tr>
-        </thead>
-        <br><br><br>
-        <tbody>
-          <a href="">
-              <tr>
-                  <th scope="row">{{blog.id}}</th>
-                  <td>{{blog.title}}</td>
-                  <td>{{blog.pub_date}}</td>
-                  <td>{{blog.body}}</td>
-                  <td><a href="{% url 'edit' pk=blog.pk %}">수정</a></td>
-                  <td><a href="{% url 'remove' pk=blog.pk %}">삭제</a></td>
-              </tr>
-            </a>
-        </tbody>
-      </table>
-    </div>
-    <!-- <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="{{blog.body}}">{{blog.id}}번째 게시판!</button> -->
-        <!-- <a href="{% url 'edit' pk=blog.pk %}">수정</a>
-        <a href="{% url 'remove' pk=blog.pk %}">삭제</a> -->
-        {% endfor %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">pk!</th>
+        <th scope="col">Title</th>
+        <th scope="col">time</th>
+      </tr>
+    </thead>
+      <br><br><br>
+    <tbody>
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td><a href="{% url 'blog:detail' blog.id %}">{{blog.title}}</a></td>
+        <td>{{blog.pub_date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endfor %}
 {% endblock %}
