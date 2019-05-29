@@ -1,0 +1,7 @@
+{% for article in articles %}
+<h1>{{ article.title }}</h1>
+<p>{{ article.published_at }}</p>
+<a href="{% url 'blog:detail' article.id %}">자세히</a>
+{% endfor %}
+<hr>
+<a href="{% url 'blog:new' %}">글 추가</a>
