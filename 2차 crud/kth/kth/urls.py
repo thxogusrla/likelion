@@ -18,7 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include("blog.urls")), # include는 참조를 해준다. 즉 blog.urls에 있는 url값들을 모두 참조하게 해줌.
+    path('', include("blog.urls")), # include는 참조를 해준다. 즉 blog.urls에 있는 url값들을 모두 참조하게 해줌.
     
     # path('',include),
 ]

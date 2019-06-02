@@ -13,7 +13,7 @@ def new(request):
         #POST 방식으로로 들어온 데이터를 form 이라는 변수에 저장해줌.
         if form.is_valid():  # 유효한지 검사함.
             article = form.save(commit=False)  # commit=false 저장을 늦게 진행하겠다.
-            article.title = form.cleaned_data["title"] #
+            article.title = form.cleaned_data["title"] #검증에 통과한 값을 사전타입으로 제공.
             article.content = form.cleaned_data["content"]
             article.published_at = timezone.now() # ArticleForm에 published_at 입력해 주지 않기 때문
             article.save()

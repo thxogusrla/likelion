@@ -1,5 +1,6 @@
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import *
 from . import views
 
@@ -16,4 +17,7 @@ urlpatterns = [
     path('<int:blog_id>/remove/',views.remove, name='remove'),
     path('<int:blog_id>/<int:comment_id>/edit_comment/', views.edit_comment, name='edit_comment'),
     path('<int:blog_id>/<int:comment_id>/remove_comment/', views.remove_comment, name='remove_comment'),
-]
+    path('blog/hashtag/', views.hashtagform, name='hashtag'),
+    path('<int:hashtag_id>/search/', views.search, name='search'),
+
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
